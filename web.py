@@ -17,8 +17,8 @@ st.markdown("[👉 点击这里登录微博](https://weibo.com/) （请在新窗
 
 # **2️⃣ 创建不同类别的输入框**
 categories = {
-    "网暴他人-LWK": st.text_area("🛑 网暴他人-LWK（每行一个链接）"),
-    "网暴他人-WCC": st.text_area("🛑 网暴他人-WCC（每行一个链接）"),
+    "网暴他人-LWK": st.text_area("🛑 网暴他人-xxx（每行一个链接）"),
+    "网暴他人-WCC": st.text_area("🛑 网暴他人-yyy（每行一个链接）"),
     "饭圈不友善": st.text_area("🤬 饭圈不友善（每行一个链接）"),
     "饭圈谩骂": st.text_area("💢 饭圈谩骂（每行一个链接）"),
     "涉黄/低俗信息": st.text_area("🔞 涉黄/低俗信息（每行一个链接）"),
@@ -34,7 +34,7 @@ if st.button("🚀 开始投诉"):
     for category, links in categories.items():
         link_list = links.strip().split("\n") if links.strip() else []
         for url in link_list:
-            if category == "网暴他人-LWK":
+            if category == "网暴他人-xxx":
                 try:
                     print(f"🔗 处理链接: {url}")
                     driver.get(url)
@@ -79,11 +79,11 @@ if st.button("🚀 开始投诉"):
                     authorize_button.click()
                     time.sleep(1)
 
-                    # 输入被投诉人昵称 "梁伟铿K"
+                    # 输入被投诉人昵称
                     text_input = WebDriverWait(driver, 5).until(
                         EC.presence_of_element_located((By.XPATH, "//input[@node-type='netAttackUserNameTextEl']"))
                     )
-                    text_input.send_keys("梁伟铿K") #可修改为 王昶天天都想拿冠军
+                    text_input.send_keys("xxx's weibo id")
 
                     # 输入投诉内容
                     text_area = WebDriverWait(driver, 5).until(
@@ -113,7 +113,7 @@ if st.button("🚀 开始投诉"):
                     print(f"❌ {url} 发生错误，跳过此链接: {e}")
                     continue  # 继续下一个链接
 
-            elif category == "网暴他人-WCC":
+            elif category == "网暴他人-yyy":
                 try:
                     print(f"🔗 处理链接: {url}")
                     driver.get(url)
@@ -158,11 +158,11 @@ if st.button("🚀 开始投诉"):
                     authorize_button.click()
                     time.sleep(1)
 
-                    # 输入被投诉人昵称 "王昶天天都想拿冠军"
+                    # 输入被投诉人昵称
                     text_input = WebDriverWait(driver, 5).until(
                         EC.presence_of_element_located((By.XPATH, "//input[@node-type='netAttackUserNameTextEl']"))
                     )
-                    text_input.send_keys("王昶天天都想拿冠军") 
+                    text_input.send_keys("yyy's weibo id") 
 
                     # 输入投诉内容
                     text_area = WebDriverWait(driver, 5).until(
